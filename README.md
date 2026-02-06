@@ -9,7 +9,6 @@ Small, production-ish API starter:
 - RBAC: `user` / `admin`
 - Tests: Jest + Supertest (DB is `pg-mem`, no Docker needed for unit tests)
 
-> Replace `<OWNER>/<REPO>` in the badge URL after you push to GitHub.
 
 ## Quick start
 
