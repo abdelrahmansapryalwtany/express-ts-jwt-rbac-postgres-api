@@ -29,7 +29,7 @@ This repo includes `env.example`. Create a `.env` file in the project root with 
 - `JWT_SECRET`
 - `JWT_EXPIRES_IN`
 
-Example (adjust if needed):
+Example:
 
 ```env
 PORT=3000
@@ -59,8 +59,6 @@ Health check:
 - `POST /auth/register`
 - body: `{ "email": "user@example.com", "password": "password123" }`
 
-PowerShell (use real curl, not the alias):
-
 ```powershell
 curl.exe -s -X POST "http://localhost:3000/auth/register" -H "Content-Type: application/json" -d "{\"email\":\"user@example.com\",\"password\":\"password123\"}"
 ```
@@ -68,7 +66,6 @@ curl.exe -s -X POST "http://localhost:3000/auth/register" -H "Content-Type: appl
 #### Login (get token)
 
 - `POST /auth/login`
-- body: `{ "email": "user@example.com", "password": "password123" }`
 - response: `{ "accessToken": "..." }`
 
 ```powershell
@@ -99,20 +96,15 @@ Admin token should get `200`:
 curl.exe -i "http://localhost:3000/admin/users" -H "Authorization: Bearer <ADMIN_ACCESS_TOKEN>"
 ```
 
-#### Making an admin for local testing
+#### Create an admin user (for local testing)
 
-This starter intentionally does **not** include a â€œpromote roleâ€ endpoint.
+- Option 1: register a normal user, then promote it in DB: `UPDATE users SET role='admin' WHERE email='user@example.com';`
+- Option 2: (planned) add a small seed script that creates an admin user via env vars.
 
-Option A: update a user to admin directly in Postgres (docker):
+If you use docker-compose Postgres:
 
 ```bash
 docker compose exec -T db psql -U postgres -d app -c "UPDATE users SET role='admin' WHERE email='user@example.com';"
-```
-
-Option B: create an admin row manually:
-
-```bash
-docker compose exec -T db psql -U postgres -d app -c "INSERT INTO users(email,password_hash,role) VALUES ('admin@example.com','<bcrypt_hash_here>','admin');"
 ```
 
 ## Postman
