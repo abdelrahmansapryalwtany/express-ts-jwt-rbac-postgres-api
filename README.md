@@ -1,6 +1,6 @@
 ﻿# Express + TypeScript + JWT/RBAC + Postgres
 
-[![CI](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml/badge.svg)](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml)
+[![CI](https://github.com/abdelrahmansapryalwtany/express-ts-jwt-rbac-postgres-api/actions/workflows/ci.yml/badge.svg)](https://github.com/abdelrahmansapryalwtany/express-ts-jwt-rbac-postgres-api/actions/workflows/ci.yml)
 
 Small, production-ish API starter:
 
